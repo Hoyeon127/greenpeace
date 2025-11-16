@@ -88,6 +88,8 @@
       object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
     }
     .scene p {
       font-family: 'Nanum Pen Script', cursive;
@@ -98,11 +100,11 @@
       line-height: 1.6em;
     }
 
-    /* arrow */
+    /* arrow - 정확히 이미지 옆으로 */
     .arrow-btn {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-150%); /* 이미지 높이에 맞게 조정 */
       background: none;
       border: none;
       cursor: pointer;
@@ -111,13 +113,16 @@
       height: 0;
       border-top: 12px solid transparent;
       border-bottom: 12px solid transparent;
+      opacity: 0.6;
+      transition: opacity 0.2s;
     }
+    .arrow-btn:hover { opacity: 1; }
     .arrow-left {
-      left: calc(50% - 185px);
+      left: 10px;
       border-right: 14px solid #ccc;
     }
     .arrow-right {
-      right: calc(50% - 185px);
+      right: 10px;
       border-left: 14px solid #ccc;
     }
 
@@ -125,12 +130,6 @@
       .scene img {
         width: 80%;
         max-width: 260px;
-      }
-      .arrow-left {
-        left: calc(50% - 155px);
-      }
-      .arrow-right {
-        right: calc(50% - 155px);
       }
     }
 
@@ -318,7 +317,7 @@
 
     function scrollToStory() {
       const element = document.getElementById('story');
-      const yOffset = -60; // 잘림 방지용
+      const yOffset = -120; // 스크롤 보정 (잘림 방지)
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
