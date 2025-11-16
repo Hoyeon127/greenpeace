@@ -1,94 +1,103 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Re:Born Toy | 그린피스</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; }
     body {
-      font-family: 'Nanum Gothic', sans-serif;
       margin: 0;
-      background-color: #fffdf8;
-      color: #333;
-      overflow-x: hidden;
+      font-family: 'Nanum Gothic', sans-serif;
+      background: url('background.jpg') center/cover no-repeat fixed;
+      color: #fff;
     }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      background-color: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.9);
+      padding: 15px 25px;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     header img {
-      height: 55px;
+      height: 50px;
+      object-fit: contain;
     }
     header button {
-      background-color: #ffd24c;
+      background-color: #FFD24C;
       border: none;
-      padding: 10px 16px;
+      padding: 10px 18px;
       border-radius: 6px;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .hero {
       text-align: center;
-      background: url('background.jpg') center/cover no-repeat;
-      padding: 100px 20px;
-      color: white;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+      padding: 120px 20px 100px;
+      color: #fff;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.7);
     }
     .hero h1 {
-      font-size: 2em;
-      font-weight: bold;
-      margin-bottom: 10px;
+      font-size: 2.8em;
+      font-weight: 800;
+      margin-bottom: 15px;
     }
     .hero p {
-      font-size: 1.1em;
+      font-size: 1.2em;
+      font-weight: bold;
       margin-bottom: 25px;
     }
     .hero button {
-      background-color: #c6e2d1;
+      background-color: #99d6a8;
       border: none;
-      padding: 12px 20px;
+      padding: 12px 24px;
       border-radius: 6px;
       font-weight: bold;
-      color: #3d3d3d;
+      color: #333;
+      cursor: pointer;
     }
 
     .donation-box {
-      background-color: white;
+      background-color: #fff;
+      color: #333;
       max-width: 420px;
-      margin: -60px auto 50px;
+      margin: 40px auto 80px;
       padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
       text-align: center;
     }
     .donation-tabs {
       display: flex;
+      border: 1px solid #ccc;
       border-radius: 6px;
       overflow: hidden;
-      border: 1px solid #ccc;
       margin-bottom: 20px;
     }
     .donation-tabs button {
       flex: 1;
       padding: 10px;
       border: none;
-      background-color: #f2f2f2;
       font-weight: bold;
       cursor: pointer;
+      background-color: #f2f2f2;
     }
     .donation-tabs button.active {
       background-color: #99d6a8;
       color: white;
     }
-
+    .donation-box p {
+      background: #d9f5d9;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
     .amounts button {
       background-color: #f2f2f2;
       border: none;
@@ -102,62 +111,71 @@
       background-color: #99d6a8;
       color: white;
     }
-
-    .story-container {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-    .story {
-      display: flex;
-      transition: transform 0.6s ease-in-out;
-    }
-    .scene {
-      min-width: 100%;
-      box-sizing: border-box;
-      text-align: center;
-    }
-    .scene img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-    .scene p {
-      font-family: 'Nanum Pen Script', cursive;
-      font-size: 1.3em;
-      white-space: pre-line;
-      color: #4b3d2a;
-      margin: 20px 0;
-      line-height: 1.6em;
-    }
-
-    .arrows {
-      display: flex;
-      justify-content: space-between;
+    input {
       margin-top: 10px;
+      padding: 10px;
+      width: 80%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
-    .arrows button {
-      background-color: #ffd24c;
+    .donation-box button.donate {
+      background-color: #FFD24C;
       border: none;
-      padding: 10px 16px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .demo-note {
+      margin-top: 8px;
+      font-size: 0.85em;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 2px 3px rgba(0,0,0,0.4);
+    }
+
+    footer {
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #ddd;
+    }
+
+    /* 모달 */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 200;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      color: #333;
+      padding: 25px 30px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .modal-content button {
+      margin-top: 15px;
+      background-color: #FFD24C;
+      border: none;
+      padding: 8px 16px;
       border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
     }
-
-    footer {
-      background-color: #f5f5f5;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #777;
-      margin-top: 40px;
-    }
   </style>
 </head>
 <body>
+
   <header>
     <img src="091c9025-7c3e-4b4d-a61d-3b204d038d07.png" alt="Greenpeace Logo">
     <button>후원하기</button>
@@ -165,105 +183,48 @@
 
   <section class="hero">
     <h1>Re:Born Toy</h1>
-    <p>버려진 인형에게 두 번째 삶을 선물하세요.</p>
-    <button onclick="document.getElementById('story').scrollIntoView({behavior: 'smooth'});">인형의 여정 다시보기</button>
+    <p>버려진 인형에게 새로운 삶을 선물하세요.</p>
+    <button onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'});">인형의 여정 다시보기</button>
   </section>
 
-  <div class="donation-box">
+  <div id="donate" class="donation-box">
     <div class="donation-tabs">
       <button class="active">정기후원</button>
       <button>일시후원</button>
     </div>
-    <p style="background:#d9f5d9; padding:10px; border-radius:6px;">현장 세척과 수선, 전달 과정에 당신의 따뜻한 마음이 전해집니다.</p>
+    <p>현장 세척과 수선, 전달 과정에 당신의 따뜻한 마음이 전해집니다.</p>
     <div class="amounts">
       <button>10,000원</button>
       <button>15,000원</button>
       <button class="active">20,000원</button>
       <button>30,000원</button>
     </div>
-    <input type="text" placeholder="직접 입력 (최소 금액: 10,000원)" style="margin-top:10px; padding:10px; width:80%; border-radius:6px; border:1px solid #ccc;">
-    <div style="margin-top:20px;">
-      <button style="background-color:#ffd24c; border:none; padding:12px 20px; border-radius:8px; font-weight:bold;">후원하기</button>
+    <input type="text" placeholder="직접 입력 (최소 금액: 10,000원)">
+    <div>
+      <button class="donate" onclick="showModal()">후원하기</button>
     </div>
+    <p class="demo-note">이 페이지는 발표를 위한 데모 페이지이므로, 실제 결제는 이루어지지 않습니다.</p>
   </div>
 
-  <section id="story" class="story-container">
-    <div class="story" id="slides">
-      <div class="scene"><img src="scene1.png"><p>
-        안녕하세요.
-        저는 2025년 10월 4일 일 어느 조용한 공장에서 태어났습니다.
-        제 몸을 만든 손길은 따뜻했고, 아주 정성스러웠어요.
-        바늘이 제 몸을 스칠 때마다, 그 손은 말했습니다.
-        “누군가의 행복이 되어줘야 해.”
-        저는 그 말을 기억하며 꿈을 꿨어요.
-        누군가의 품에 안겨 웃음을 주는 꿈.</p></div>
-      <div class="scene"><img src="scene2.png"><p>
-        완성된 후, 저는 비닐 포장 속에 들어가 동그란 유리통 안으로 옮겨졌어요.
-        그곳엔 저와 비슷한 친구들이 빼곡히 있었죠.
-        우리는 서로의 이름도 모른 채, 누군가가 와주길 기다렸어요.
-        하루, 이틀, 한 달.
-        그렇게 어느 날, 드디어 누군가가 제 앞에 멈춰 섰습니다.
-        기계가 덜컥 움직였고, 팔이 내려와 저를 끌어올렸어요.
-        세상이 빛으로 가득 찼습니다.</p></div>
-      <div class="scene"><img src="scene3.png"><p>
-        저는 너무 기뻤어요.
-        ‘이제 나도 사랑받겠구나.’
-        그런데 그 사람은 잠시 저를 바라보더니,
-        작은 한숨을 내쉬며 말없이 저를 던졌어요.</p></div>
-      <div class="scene"><img src="scene4.png"><p>
-        그날 이후, 제 세상은 깜깜해졌어요.
-        좁은 어둠 속에서 먼지가 쌓여갔고,
-        제 눈빛도 점점 흐려졌어요.
-        저는 계속 스스로에게 물었어요.
-        내가 조금 더 귀여웠다면?
-        팔이 길어서 더 따뜻하게 안아줬다면.. 버려지지 않았을까?
-        그렇게 스스로를 탓하다 보니,
-        어느새 제 팔은 뜯기고, 솜이 삐져나왔어요.
-        제 몸엔 냄새가 났고, 눈엔 먼지가 잔뜩 끼었어요.</p></div>
-      <div class="scene"><img src="scene5.png"><p>‘이제 내 이야기는 여기서 끝나는구나.’
-        그렇게 포기하려던 순간,
-        낯선 손길 하나가 조심스레 저를 들어 올렸어요.
-        그 손은 따뜻했어요.
-        마치 처음 저를 만들던 그 손처럼요.
-        “괜찮아, 이제 다시 태어날 시간이야.”
-        저는 그 말을 듣는 순간, 다시 한 번 꿈을 꾸기 시작했습니다.
-        누군가에게 사랑을 전하는, 두 번째 꿈을요.</p></div>
-      <div class="scene"><img src="scene6.png"><p>
-        이제 저는 제 오랜 꿈을 이룰 수 있게 되었어요.
-        누군가에게 사랑과 따스함을 선물하는 바로 그 꿈이요.
-        그리고 제 몸에는 제가 꿈을 이루었음을 보여주는 작은 증표 하나가 생겼습니다.</p></div>
-      <div class="scene"><img src="scene7.png"><p>
-        “Re:Born with love from Hoyeon”
-        이제 저는 누군가의 품에서 다시 웃을 수 있습니다.</p></div>
+  <div class="modal" id="thankModal">
+    <div class="modal-content">
+      <p>당신의 따뜻한 마음이 전해졌습니다. 감사합니다 ❤️</p>
+      <button onclick="closeModal()">닫기</button>
     </div>
-    <div class="arrows">
-      <button onclick="prevSlide()">◀ 이전</button>
-      <button onclick="nextSlide()">다음 ▶</button>
-    </div>
-  </section>
+  </div>
 
   <footer>
     © 2025 Greenpeace Re:Born Toy Project. All rights reserved.
   </footer>
 
   <script>
-    let index = 0;
-    const slides = document.getElementById('slides');
-    const total = document.querySelectorAll('.scene').length;
-
-    function showSlide() {
-      slides.style.transform = `translateX(-${index * 100}%)`;
+    function showModal() {
+      document.getElementById('thankModal').style.display = 'flex';
     }
-
-    function nextSlide() {
-      index = (index + 1) % total;
-      showSlide();
-    }
-
-    function prevSlide() {
-      index = (index - 1 + total) % total;
-      showSlide();
+    function closeModal() {
+      document.getElementById('thankModal').style.display = 'none';
     }
   </script>
+
 </body>
 </html>
