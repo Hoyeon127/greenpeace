@@ -25,11 +25,9 @@
       top: 0;
       z-index: 10;
     }
-    header img {
-      height: 45px;
-    }
+    header img { height: 45px; }
 
-    /* hero section */
+    /* hero */
     .hero {
       height: 100vh;
       background: url('background.jpg') center/cover no-repeat;
@@ -65,7 +63,7 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
-    /* story section */
+    /* story */
     .story-container {
       width: 100%;
       max-width: 420px;
@@ -100,25 +98,27 @@
       line-height: 1.6em;
     }
 
-    /* arrow buttons */
+    /* arrow */
     .arrow-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(255, 210, 76, 0.9);
+      background: none;
       border: none;
-      padding: 12px 15px;
-      border-radius: 50%;
-      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
       z-index: 10;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
     }
     .arrow-left {
-      left: calc(50% - 190px);
+      left: calc(50% - 185px);
+      border-right: 14px solid #ccc;
     }
     .arrow-right {
-      right: calc(50% - 190px);
+      right: calc(50% - 185px);
+      border-left: 14px solid #ccc;
     }
 
     @media (max-width: 400px) {
@@ -127,14 +127,14 @@
         max-width: 260px;
       }
       .arrow-left {
-        left: calc(50% - 160px);
+        left: calc(50% - 155px);
       }
       .arrow-right {
-        right: calc(50% - 160px);
+        right: calc(50% - 155px);
       }
     }
 
-    /* donation box */
+    /* donation */
     .donation-box {
       background-color: white;
       width: 100%;
@@ -228,7 +228,7 @@
   </section>
 
   <section id="story" class="story-container">
-    <button class="arrow-btn arrow-left" onclick="prevSlide()">◀</button>
+    <button class="arrow-btn arrow-left" onclick="prevSlide()"></button>
     <div class="story" id="slides">
       <div class="scene"><img src="scene1.png"><p>안녕하세요.
 저는 2025년 10월 4일, 어느 조용한 공장에서 태어났습니다.
@@ -280,7 +280,7 @@
 이제 저는 누군가의 품에서 다시 웃을 수 있습니다.</p>
 <button onclick="scrollToDonate()" style="background:#ffd24c; border:none; padding:12px 18px; border-radius:8px; font-weight:bold; margin-top:10px;">후원하러 가기</button></div>
     </div>
-    <button class="arrow-btn arrow-right" onclick="nextSlide()">▶</button>
+    <button class="arrow-btn arrow-right" onclick="nextSlide()"></button>
   </section>
 
   <section id="donate" class="donation-box">
@@ -317,7 +317,10 @@
     function prevSlide() { index = (index - 1 + total) % total; showSlide(); }
 
     function scrollToStory() {
-      document.getElementById('story').scrollIntoView({ behavior: 'smooth' });
+      const element = document.getElementById('story');
+      const yOffset = -60; // 잘림 방지용
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
     function scrollToDonate() {
       document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
