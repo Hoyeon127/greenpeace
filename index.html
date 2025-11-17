@@ -140,7 +140,7 @@
       animation: fadeInUp 1s ease forwards;
     }
 
-    /* donation (그린피스 스타일) */
+    /* donation */
     .donation-box {
       background: white;
       width: 100%;
@@ -193,9 +193,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    .amounts button:hover {
-      background: #e9e9e9;
-    }
+    .amounts button:hover { background: #e9e9e9; }
     .amounts button.active {
       background: #99d6a8;
       color: #fff;
@@ -224,9 +222,7 @@
       box-shadow: 0 3px 6px rgba(0,0,0,0.2);
       transition: background 0.3s ease;
     }
-    .donate-submit:hover {
-      background: #f5c93c;
-    }
+    .donate-submit:hover { background: #f5c93c; }
 
     .donation-info {
       font-size: 0.8em;
@@ -272,9 +268,7 @@
 </head>
 
 <body>
-  <header>
-    <img src="logo.png" alt="Greenpeace Logo">
-  </header>
+  <header><img src="logo.png" alt="Greenpeace Logo"></header>
 
   <section class="hero">
     <h1>버려진 인형에게 새로운 삶을 선물해주세요.</h1>
@@ -287,19 +281,87 @@
   <section id="story" class="story-container">
     <button class="arrow-btn arrow-left" onclick="prevSlide()"></button>
     <div class="story" id="slides">
-      <!-- (컷 장면들은 동일, 생략) -->
-      <div class="scene"><img src="scene7.png"><p>“Re:Born with love from Hoyeon”<br>이제 저는 누군가의 품에서 다시 웃을 수 있습니다.</p>
+
+      <div class="scene">
+        <img src="scene1.png">
+        <p>안녕하세요.
+저는 2025년 10월 4일, 어느 조용한 공장에서 태어났습니다.
+제 몸을 만든 손길은 따뜻했고, 아주 정성스러웠어요.
+바늘이 제 몸을 스칠 때마다, 그 손은 말했습니다.
+“누군가의 행복이 되어줘야 해.”
+저는 그 말을 기억하며 꿈을 꿨어요.
+누군가의 품에 안겨 웃음을 주는 꿈.</p>
+      </div>
+
+      <div class="scene">
+        <img src="scene2.png">
+        <p>완성된 후, 저는 네모난 유리통 안으로 옮겨졌어요.
+그곳엔 저와 비슷한 친구들이 빼곡히 있었죠.
+우리는 서로의 이름도 모른 채, 누군가가 와주길 기다렸어요.
+하루, 이틀, 한 달.
+그렇게 어느 날, 드디어 누군가가 제 앞에 멈춰 섰습니다.
+기계가 덜컥 움직였고, 팔이 내려와 저를 끌어올렸어요.
+세상이 빛으로 가득 찼습니다.</p>
+      </div>
+
+      <div class="scene">
+        <img src="scene3.png">
+        <p>저는 너무 기뻤어요.
+‘이제 나도 사랑받겠구나.’
+그런데 그 사람은 잠시 저를 바라보더니,
+작은 한숨을 내쉬며 말없이 저를 던졌어요.</p>
+      </div>
+
+      <div class="scene">
+        <img src="scene4.png">
+        <p>그날 이후, 제 세상은 깜깜해졌어요.
+좁은 어둠 속에서 먼지가 쌓여갔고,
+제 눈빛도 점점 흐려졌어요.
+저는 계속 스스로에게 물었어요.
+내가 조금 더 귀여웠다면?
+팔이 길어서 더 따뜻하게 안아줬다면...
+버려지지 않았을까?
+그렇게 스스로를 탓하다 보니,
+어느새 제 팔은 뜯기고, 솜이 삐져나왔어요.
+제 몸엔 냄새가 났고, 눈엔 먼지가 잔뜩 끼었어요.</p>
+      </div>
+
+      <div class="scene">
+        <img src="scene5.png">
+        <p>‘이제 내 이야기는 여기서 끝나는구나.’
+그렇게 포기하려던 순간,
+낯선 손길 하나가 조심스레 저를 들어 올렸어요.
+그 손은 따뜻했어요.
+마치 처음 저를 만들던 그 손처럼요.
+“괜찮아, 이제 다시 태어날 시간이야.”
+저는 그 말을 듣는 순간,
+다시 한 번 꿈을 꾸기 시작했습니다.
+누군가에게 사랑을 전하는, 두 번째 꿈을요.</p>
+      </div>
+
+      <div class="scene">
+        <img src="scene6.png">
+        <p>이제 저는 제 오랜 꿈을 이룰 수 있게 되었어요.
+누군가에게 사랑과 따스함을 선물하는 바로 그 꿈이요.
+그리고 제 몸에는 
+제가 꿈을 이루었음을 보여주는 
+작은 증표 하나가 생겼습니다.</p>
+      </div>
+
+      <div class="scene">
+        <img src="scene7.png">
+        <p>“Re:Born with love from Hoyeon”
+이제 저는 누군가의 품에서 다시 웃을 수 있습니다.</p>
         <button onclick="scrollToDonate()" style="background:#ffd24c; border:none; padding:12px 18px; border-radius:8px; font-weight:bold; margin-top:10px;">후원하러 가기</button>
       </div>
+
     </div>
     <button class="arrow-btn arrow-right" onclick="nextSlide()"></button>
   </section>
 
   <!-- 지도 -->
   <section id="map-section" class="fade-in" style="text-align:center; margin:80px auto 50px;">
-    <h2 style="font-size:1.1em; color:#333; margin-bottom:15px;">
-      여러분의 따뜻한 마음은 <strong>전국의 아동보호시설</strong>로 전달됩니다.
-    </h2>
+    <h2 style="font-size:1.1em; color:#333; margin-bottom:15px;">여러분의 따뜻한 마음은 <strong>전국의 아동보호시설</strong>로 전달됩니다.</h2>
     <img src="korea_map.png" alt="전국 아동보호시설 지도" style="max-width:420px; width:90%; height:auto; margin:auto; display:block; border-radius:12px;">
   </section>
 
@@ -311,7 +373,7 @@
     </div>
 
     <div class="donation-guide">
-      현장 조사와 정책 제안, 시민 캠페인으로<br>버려진 인형에게 새로운 삶을 선물할 수 있습니다.
+      인형 세척과 리폼, 전달 과정에<br>여러분의 따뜻한 마음이 전달됩니다.
     </div>
 
     <div class="amounts">
@@ -333,15 +395,14 @@
   </div>
 
   <script>
-    // 컷툰 슬라이드
     let index = 0;
     const slides = document.getElementById('slides');
     const total = document.querySelectorAll('.scene').length;
+
     function showSlide() { slides.style.transform = `translateX(-${index * 100}%)`; }
     function nextSlide() { index = (index + 1) % total; showSlide(); }
     function prevSlide() { index = (index - 1 + total) % total; showSlide(); }
 
-    // 스크롤 이동
     function scrollToStory() {
       const element = document.getElementById('story');
       const yOffset = -120;
@@ -352,7 +413,6 @@
       document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 팝업 표시
     const donateBtn = document.getElementById('donateBtn');
     const modal = document.getElementById('thankModal');
     donateBtn.addEventListener('click', () => {
@@ -360,7 +420,6 @@
       setTimeout(() => modal.style.display = 'none', 2000);
     });
 
-    // 페이드인
     const fadeTargets = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
