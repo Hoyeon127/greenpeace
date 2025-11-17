@@ -151,45 +151,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       text-align: center;
     }
-    .donation-tabs {
-      display: flex;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid #ccc;
-      margin-bottom: 20px;
-    }
-    .donation-tabs button {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      background-color: #f2f2f2;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .donation-tabs button.active {
-      background-color: #99d6a8;
-      color: white;
-    }
-    .amounts button {
-      background-color: #f2f2f2;
-      border: none;
-      margin: 8px;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .amounts button.active {
-      background-color: #99d6a8;
-      color: white;
-    }
-    .donation-note {
-      background: #d9f5d9;
-      padding: 10px;
-      border-radius: 6px;
-      margin-bottom: 15px;
-      font-size: 0.9em;
-    }
 
     /* modal */
     .modal {
@@ -217,14 +178,6 @@
       from { transform: scale(0.9); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 0.85em;
-      color: #888;
-      margin-top: 40px;
-    }
   </style>
 </head>
 
@@ -240,30 +193,60 @@
     <button onclick="scrollToDonate()">후원하기</button>
   </section>
 
+  <!-- 컷툰 -->
   <section id="story" class="story-container">
     <button class="arrow-btn arrow-left" onclick="prevSlide()"></button>
     <div class="story" id="slides">
+
+      <div class="scene"><img src="scene1.png"><p>안녕하세요.
+저는 2025년 10월 4일, 어느 조용한 공장에서 태어났습니다.
+제 몸을 만든 손길은 따뜻했고, 아주 정성스러웠어요.
+바늘이 제 몸을 스칠 때마다, 그 손은 말했습니다.
+“누군가의 행복이 되어줘야 해.”</p></div>
+
+      <div class="scene"><img src="scene2.png"><p>완성된 후, 저는 네모난 유리통 안으로 옮겨졌어요.
+그곳엔 저와 비슷한 친구들이 빼곡히 있었죠.
+우리는 서로의 이름도 모른 채, 누군가가 와주길 기다렸어요.
+그렇게 어느 날, 드디어 누군가가 제 앞에 멈춰 섰습니다.</p></div>
+
+      <div class="scene"><img src="scene3.png"><p>저는 너무 기뻤어요.
+‘이제 나도 사랑받겠구나.’
+그런데 그 사람은 잠시 저를 바라보더니,
+작은 한숨을 내쉬며 말없이 저를 던졌어요.</p></div>
+
+      <div class="scene"><img src="scene4.png"><p>그날 이후, 제 세상은 깜깜해졌어요.
+좁은 어둠 속에서 먼지가 쌓여갔고,
+제 눈빛도 점점 흐려졌어요.
+“내가 조금 더 귀여웠다면?”
+스스로를 탓하다 보니,
+제 팔은 뜯기고, 솜이 삐져나왔어요.</p></div>
+
+      <div class="scene"><img src="scene5.png"><p>‘이제 내 이야기는 여기서 끝나는구나.’
+그렇게 포기하려던 순간,
+낯선 손길이 저를 들어 올렸어요.
+“괜찮아, 이제 다시 태어날 시간이야.”</p></div>
+
+      <div class="scene"><img src="scene6.png"><p>이제 저는 제 오랜 꿈을 이룰 수 있게 되었어요.
+누군가에게 사랑과 따스함을 선물하는 바로 그 꿈이요.
+그리고 제 몸에는
+제가 꿈을 이루었음을 보여주는
+작은 증표 하나가 생겼습니다.</p></div>
+
       <div class="scene"><img src="scene7.png"><p>“Re:Born with love from Hoyeon”
 이제 저는 누군가의 품에서 다시 웃을 수 있습니다.</p></div>
+
     </div>
     <button class="arrow-btn arrow-right" onclick="nextSlide()"></button>
   </section>
 
   <!-- 지도 -->
   <section id="map-section" class="fade-in" style="text-align:center; margin:80px auto 50px;">
-    <h2 style="font-family:'Nanum Gothic', sans-serif; font-size:1.1em; color:#333; margin-bottom:15px;">
-      여러분의 따뜻한 마음은 <strong>전국의 아동보호시설</strong>로 전달됩니다.
-    </h2>
-    <img src="korea_map.png" alt="전국 아동보호시설 지도" 
-         style="max-width:420px; width:90%; height:auto; margin:auto; display:block; border-radius:12px;">
+    <h2>여러분의 따뜻한 마음은 <strong>전국의 아동보호시설</strong>로 전달됩니다.</h2>
+    <img src="korea_map.png" alt="전국 아동보호시설 지도" style="max-width:420px; width:90%; height:auto; margin:auto; display:block; border-radius:12px;">
   </section>
 
   <!-- 후원 -->
   <section id="donate" class="donation-box">
-    <div class="donation-tabs">
-      <button class="active">정기후원</button>
-      <button>일시후원</button>
-    </div>
     <p class="donation-note">인형 세척과 수선, 전달 과정에 당신의 따뜻한 마음이 전해집니다.</p>
     <div class="amounts">
       <button>10,000원</button>
@@ -271,16 +254,11 @@
       <button class="active">20,000원</button>
       <button>30,000원</button>
     </div>
-    <input type="text" placeholder="직접 입력 (최소 금액: 10,000원)" style="margin-top:10px; padding:10px; width:80%; border-radius:6px; border:1px solid #ccc;">
-    <div style="margin-top:20px;">
-      <button id="donateBtn" style="background-color:#ffd24c; border:none; padding:12px 20px; border-radius:8px; font-weight:bold;">후원하기</button>
-    </div>
-    <p style="font-size:0.8em; color:#777; margin-top:10px;">이 페이지는 발표용 데모 페이지이므로 실제 결제가 이루어지지 않습니다.</p>
+    <button id="donateBtn" style="background-color:#ffd24c; border:none; padding:12px 20px; border-radius:8px; font-weight:bold;">후원하기</button>
   </section>
 
   <footer>© 2025 Greenpeace Re:Born Toy Project. All rights reserved.</footer>
 
-  <!-- 중앙 팝업 -->
   <div id="thankModal" class="modal">
     <div class="modal-content">당신의 따뜻한 마음이 전달되었습니다.<br>감사합니다 ❤️</div>
   </div>
@@ -294,25 +272,7 @@
     function nextSlide() { index = (index + 1) % total; showSlide(); }
     function prevSlide() { index = (index - 1 + total) % total; showSlide(); }
 
-    function scrollToStory() {
-      const element = document.getElementById('story');
-      const yOffset = -120;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-    function scrollToDonate() {
-      document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // 팝업 표시
-    const donateBtn = document.getElementById('donateBtn');
-    const modal = document.getElementById('thankModal');
-    donateBtn.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      setTimeout(() => modal.style.display = 'none', 2000);
-    });
-
-    // fade-in observer
+    // 페이드인
     const fadeTargets = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -320,6 +280,14 @@
       });
     }, { threshold: 0.3 });
     fadeTargets.forEach(el => observer.observe(el));
+
+    // 후원 팝업
+    const donateBtn = document.getElementById('donateBtn');
+    const modal = document.getElementById('thankModal');
+    donateBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      setTimeout(() => modal.style.display = 'none', 2000);
+    });
   </script>
 </body>
 </html>
