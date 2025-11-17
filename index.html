@@ -178,6 +178,14 @@
       from { transform: scale(0.9); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85em;
+      color: #888;
+      margin-top: 40px;
+    }
   </style>
 </head>
 
@@ -186,6 +194,7 @@
     <img src="logo.png" alt="Greenpeace Logo">
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <h1>버려진 인형에게 새로운 삶을 선물해주세요.</h1>
     <p>이 페이지는 발표용 데모 페이지입니다.</p>
@@ -197,12 +206,13 @@
   <section id="story" class="story-container">
     <button class="arrow-btn arrow-left" onclick="prevSlide()"></button>
     <div class="story" id="slides">
-
       <div class="scene"><img src="scene1.png"><p>안녕하세요.
 저는 2025년 10월 4일, 어느 조용한 공장에서 태어났습니다.
 제 몸을 만든 손길은 따뜻했고, 아주 정성스러웠어요.
 바늘이 제 몸을 스칠 때마다, 그 손은 말했습니다.
-“누군가의 행복이 되어줘야 해.”</p></div>
+“누군가의 행복이 되어줘야 해.”
+저는 그 말을 기억하며 꿈을 꿨어요.
+누군가의 품에 안겨 웃음을 주는 꿈.</p></div>
 
       <div class="scene"><img src="scene2.png"><p>완성된 후, 저는 네모난 유리통 안으로 옮겨졌어요.
 그곳엔 저와 비슷한 친구들이 빼곡히 있었죠.
@@ -233,15 +243,17 @@
 작은 증표 하나가 생겼습니다.</p></div>
 
       <div class="scene"><img src="scene7.png"><p>“Re:Born with love from Hoyeon”
-이제 저는 누군가의 품에서 다시 웃을 수 있습니다.</p></div>
-
+이제 저는 누군가의 품에서 다시 웃을 수 있습니다.</p>
+<button onclick="scrollToDonate()" style="background:#ffd24c; border:none; padding:12px 18px; border-radius:8px; font-weight:bold; margin-top:10px;">후원하러 가기</button></div>
     </div>
     <button class="arrow-btn arrow-right" onclick="nextSlide()"></button>
   </section>
 
-  <!-- 지도 -->
+  <!-- 지도 섹션 -->
   <section id="map-section" class="fade-in" style="text-align:center; margin:80px auto 50px;">
-    <h2>여러분의 따뜻한 마음은 <strong>전국의 아동보호시설</strong>로 전달됩니다.</h2>
+    <h2 style="font-size:1.1em; color:#333; margin-bottom:15px;">
+      여러분의 따뜻한 마음은 <strong>전국의 아동보호시설</strong>로 전달됩니다.
+    </h2>
     <img src="korea_map.png" alt="전국 아동보호시설 지도" style="max-width:420px; width:90%; height:auto; margin:auto; display:block; border-radius:12px;">
   </section>
 
@@ -264,7 +276,7 @@
   </div>
 
   <script>
-    // 슬라이드
+    // 컷툰 슬라이드
     let index = 0;
     const slides = document.getElementById('slides');
     const total = document.querySelectorAll('.scene').length;
@@ -272,7 +284,26 @@
     function nextSlide() { index = (index + 1) % total; showSlide(); }
     function prevSlide() { index = (index - 1 + total) % total; showSlide(); }
 
-    // 페이드인
+    // 스크롤 이동
+    function scrollToStory() {
+      const element = document.getElementById('story');
+      const yOffset = -120; 
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+    function scrollToDonate() {
+      document.getElementById('donate').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 팝업 표시
+    const donateBtn = document.getElementById('donateBtn');
+    const modal = document.getElementById('thankModal');
+    donateBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      setTimeout(() => modal.style.display = 'none', 2000);
+    });
+
+    // 페이드인 트리거
     const fadeTargets = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -280,14 +311,6 @@
       });
     }, { threshold: 0.3 });
     fadeTargets.forEach(el => observer.observe(el));
-
-    // 후원 팝업
-    const donateBtn = document.getElementById('donateBtn');
-    const modal = document.getElementById('thankModal');
-    donateBtn.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      setTimeout(() => modal.style.display = 'none', 2000);
-    });
   </script>
 </body>
 </html>
